@@ -14,9 +14,10 @@ import java.util.Map;
 public class TestBase {
     @BeforeAll
     static void setUp() {
-        Configuration.baseUrl = "https://demoqa.com";
         Configuration.browser = "chrome";
+        Configuration.browserVersion = "129.0";
         Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(

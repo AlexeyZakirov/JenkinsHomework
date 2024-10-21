@@ -34,10 +34,8 @@ public class RegistrationWithFakerTests extends TestBase {
     @DisplayName("Заполнение всех полей при регистрации")
     @Test
     public void fillAllFieldsTest() {
-        step("Открыть страницу регистрации", () -> {
-            registrationPage.openPage();
-        });
 
+        registrationPage.openPage();
         step("Заполнить все поля на странице", () -> {
             registrationPage.setStudentName(firstName, lastName)
                     .setEmail(email)
@@ -74,55 +72,53 @@ public class RegistrationWithFakerTests extends TestBase {
     @DisplayName("Заполнение только обязательных полей при регистрации")
     @Test
     public void fillMinimumFieldsTest() {
-//        step("Открыть страницу регистрации", () -> {
-            registrationPage.openPage();
-//        });
 
-//        step("Заполнить только обязательные поля", () -> {
-            registrationPage.setStudentName(firstName, lastName)
-                    .setEmail(email)
-                    .setStudentGenderWrapper(studentGender)
-                    .setStudentNumber(phoneNumber)
-                    .setDateOfBirth(month, year, day);
-//        });
+        registrationPage.openPage();
 
-//        step("Подтвердить регистрацию", () -> {
-            registrationPage.submitRegistration();
-//        });
+        step("Заполнить только обязательные поля", () -> {
+        registrationPage.setStudentName(firstName, lastName)
+                .setEmail(email)
+                .setStudentGenderWrapper(studentGender)
+                .setStudentNumber(phoneNumber)
+                .setDateOfBirth(month, year, day);
+        });
 
-//        step("Проверить соответствие введенных значений в таблице результатов с введенными при регистрации",
-//                () -> {
-                    registrationPage.checkResultDialogIsAppear()
-                            .checkRegistrationResult("Student Name", resultName)
-                            .checkRegistrationResult("Student Email", email)
-                            .checkRegistrationResult("Gender", studentGender)
-                            .checkRegistrationResult("Mobile", phoneNumber)
-                            .checkRegistrationResult("Date of Birth", resultBirthday);
-//                });
+        step("Подтвердить регистрацию", () -> {
+        registrationPage.submitRegistration();
+        });
+
+        step("Проверить соответствие введенных значений в таблице результатов с введенными при регистрации",
+                () -> {
+        registrationPage.checkResultDialogIsAppear()
+                .checkRegistrationResult("Student Name", resultName)
+                .checkRegistrationResult("Student Email", email)
+                .checkRegistrationResult("Gender", studentGender)
+                .checkRegistrationResult("Mobile", phoneNumber)
+                .checkRegistrationResult("Date of Birth", resultBirthday);
+                });
     }
 
     @DisplayName("Ввод нечислового значения номера телефона при заполнении обязательных полей регистрации")
     @Test
     public void fillMinimumFieldsWithNonNumericNumberTest() {
-//        step("Открыть страницу регистрации", () -> {
-            registrationPage.openPage();
-//        });
 
-//        step("Заполнить только обязательные поля, в поле ввода номера телефона ввести нечисловое значение",
-//                () -> {
-                    registrationPage.setStudentName(firstName, lastName)
-                            .setEmail(email)
-                            .setStudentGenderWrapper(studentGender)
-                            .setStudentNumber(invalidStudentNumber)
-                            .setDateOfBirth(month, year, day);
-//                });
+        registrationPage.openPage();
 
-//        step("Подтвердить регистрацию", () -> {
-            registrationPage.submitRegistration();
-//        });
+        step("Заполнить только обязательные поля, в поле ввода номера телефона ввести нечисловое значение",
+                () -> {
+        registrationPage.setStudentName(firstName, lastName)
+                .setEmail(email)
+                .setStudentGenderWrapper(studentGender)
+                .setStudentNumber(invalidStudentNumber)
+                .setDateOfBirth(month, year, day);
+                });
 
-//        step("Проверить, что таблица результатов не отобразилась", () -> {
-            registrationPage.checkResultIsNotAppear();
-//        });
+        step("Подтвердить регистрацию", () -> {
+        registrationPage.submitRegistration();
+        });
+
+        step("Проверить, что таблица результатов не отобразилась", () -> {
+        registrationPage.checkResultIsNotAppear();
+        });
     }
 }

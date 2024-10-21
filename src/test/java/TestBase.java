@@ -31,16 +31,21 @@ public class TestBase {
     }
 
     @BeforeEach
-    void beforeEach(){
+    void beforeEach() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @AfterEach
     void afterEach() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
+        if (Configuration.browser.equals("firefox")) {
+            Attach.screenshotAs("Last screenshot");
+            Attach.pageSource();
+        } else {
+            Attach.screenshotAs("Last screenshot");
+            Attach.pageSource();
+            Attach.browserConsoleLogs();
+            Attach.addVideo();
+        }
 
         Selenide.closeWebDriver();
     }

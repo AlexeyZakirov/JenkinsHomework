@@ -80,19 +80,19 @@ public class RegistrationPage extends ResultTableComponent {
 
     @Step("Выбрать хобби студента - {hobby}")
     public RegistrationPage setHobby(String hobby) {
-        hobbiesWrapper.$(byText(hobby)).click();
+        hobbiesWrapper.$(byText(hobby)).scrollTo().click();
         return this;
     }
 
     @Step("Загрузить картинку {picture}")
     public RegistrationPage uploadPicture(String picture) {
-        uploadPicture.uploadFromClasspath(picture);
+        uploadPicture.scrollTo().uploadFromClasspath(picture);
         return this;
     }
 
     @Step("Ввести текущий адрес студента - {address}")
     public RegistrationPage setCurrentAddressInput(String address) {
-        currentAddressInput.setValue(address);
+        currentAddressInput.scrollTo().setValue(address);
         return this;
     }
 

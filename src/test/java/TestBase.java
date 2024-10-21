@@ -40,6 +40,7 @@ public class TestBase {
         if (Configuration.browser.equals("firefox")) {
             Attach.screenshotAs("Last screenshot");
             Attach.pageSource();
+            Attach.addVideo();
         } else {
             Attach.screenshotAs("Last screenshot");
             Attach.pageSource();

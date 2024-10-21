@@ -15,7 +15,7 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
         Configuration.browser = "chrome";
-        Configuration.browserVersion = "129.0";
+        Configuration.browserVersion = "125.0";
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";

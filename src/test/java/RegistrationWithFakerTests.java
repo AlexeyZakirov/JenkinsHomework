@@ -34,11 +34,11 @@ public class RegistrationWithFakerTests extends TestBase {
     @DisplayName("Заполнение всех полей при регистрации")
     @Test
     public void fillAllFieldsTest() {
-        step("Открыть страницу регистрации", () -> {
+//        step("Открыть страницу регистрации", () -> {
             registrationPage.openPage();
-        });
+//        });
 
-        step("Заполнить все поля на странице", () -> {
+//        step("Заполнить все поля на странице", () -> {
             registrationPage.setStudentName(firstName, lastName)
                     .setEmail(email)
                     .setStudentGenderWrapper(studentGender)
@@ -49,14 +49,14 @@ public class RegistrationWithFakerTests extends TestBase {
                     .uploadPicture(pathToPicture)
                     .setCurrentAddressInput(currentAddress)
                     .setStateAndCity(state, city);
-        });
+//        });
 
-        step("Подтвердить регистрацию", () -> {
+//        step("Подтвердить регистрацию", () -> {
             registrationPage.submitRegistration();
-        });
+//        });
 
-        step("Проверить соответствие введенных значений в таблице результатов с введенными при регистрации",
-                () -> {
+//        step("Проверить соответствие введенных значений в таблице результатов с введенными при регистрации",
+//                () -> {
                     registrationPage.checkResultDialogIsAppear()
                             .checkRegistrationResult("Student Name", resultName)
                             .checkRegistrationResult("Student Email", email)
@@ -68,61 +68,61 @@ public class RegistrationWithFakerTests extends TestBase {
                             .checkRegistrationResult("Picture", pathToPicture)
                             .checkRegistrationResult("Address", currentAddress)
                             .checkRegistrationResult("State and City", resultStateAndCity);
-                });
+//                });
     }
 
     @DisplayName("Заполнение только обязательных полей при регистрации")
     @Test
     public void fillMinimumFieldsTest() {
-        step("Открыть страницу регистрации", () -> {
+//        step("Открыть страницу регистрации", () -> {
             registrationPage.openPage();
-        });
+//        });
 
-        step("Заполнить только обязательные поля", () -> {
+//        step("Заполнить только обязательные поля", () -> {
             registrationPage.setStudentName(firstName, lastName)
                     .setEmail(email)
                     .setStudentGenderWrapper(studentGender)
                     .setStudentNumber(phoneNumber)
                     .setDateOfBirth(month, year, day);
-        });
+//        });
 
-        step("Подтвердить регистрацию", () -> {
+//        step("Подтвердить регистрацию", () -> {
             registrationPage.submitRegistration();
-        });
+//        });
 
-        step("Проверить соответствие введенных значений в таблице результатов с введенными при регистрации",
-                () -> {
+//        step("Проверить соответствие введенных значений в таблице результатов с введенными при регистрации",
+//                () -> {
                     registrationPage.checkResultDialogIsAppear()
                             .checkRegistrationResult("Student Name", resultName)
                             .checkRegistrationResult("Student Email", email)
                             .checkRegistrationResult("Gender", studentGender)
                             .checkRegistrationResult("Mobile", phoneNumber)
                             .checkRegistrationResult("Date of Birth", resultBirthday);
-                });
+//                });
     }
 
     @DisplayName("Ввод нечислового значения номера телефона при заполнении обязательных полей регистрации")
     @Test
     public void fillMinimumFieldsWithNonNumericNumberTest() {
-        step("Открыть страницу регистрации", () -> {
+//        step("Открыть страницу регистрации", () -> {
             registrationPage.openPage();
-        });
+//        });
 
-        step("Заполнить только обязательные поля, в поле ввода номера телефона ввести нечисловое значение",
-                () -> {
+//        step("Заполнить только обязательные поля, в поле ввода номера телефона ввести нечисловое значение",
+//                () -> {
                     registrationPage.setStudentName(firstName, lastName)
                             .setEmail(email)
                             .setStudentGenderWrapper(studentGender)
                             .setStudentNumber(invalidStudentNumber)
                             .setDateOfBirth(month, year, day);
-                });
+//                });
 
-        step("Подтвердить регистрацию", () -> {
+//        step("Подтвердить регистрацию", () -> {
             registrationPage.submitRegistration();
-        });
+//        });
 
-        step("Проверить, что таблица результатов не отобразилась", () -> {
+//        step("Проверить, что таблица результатов не отобразилась", () -> {
             registrationPage.checkResultIsNotAppear();
-        });
+//        });
     }
 }

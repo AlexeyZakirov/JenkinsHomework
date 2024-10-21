@@ -34,11 +34,11 @@ public class RegistrationWithFakerTests extends TestBase {
     @DisplayName("Заполнение всех полей при регистрации")
     @Test
     public void fillAllFieldsTest() {
-//        step("Открыть страницу регистрации", () -> {
+        step("Открыть страницу регистрации", () -> {
             registrationPage.openPage();
-//        });
+        });
 
-//        step("Заполнить все поля на странице", () -> {
+        step("Заполнить все поля на странице", () -> {
             registrationPage.setStudentName(firstName, lastName)
                     .setEmail(email)
                     .setStudentGenderWrapper(studentGender)
@@ -49,14 +49,14 @@ public class RegistrationWithFakerTests extends TestBase {
                     .uploadPicture(pathToPicture)
                     .setCurrentAddressInput(currentAddress)
                     .setStateAndCity(state, city);
-//        });
+        });
 
-//        step("Подтвердить регистрацию", () -> {
+        step("Подтвердить регистрацию", () -> {
             registrationPage.submitRegistration();
-//        });
+        });
 
-//        step("Проверить соответствие введенных значений в таблице результатов с введенными при регистрации",
-//                () -> {
+        step("Проверить соответствие введенных значений в таблице результатов с введенными при регистрации",
+                () -> {
                     registrationPage.checkResultDialogIsAppear()
                             .checkRegistrationResult("Student Name", resultName)
                             .checkRegistrationResult("Student Email", email)
@@ -68,7 +68,7 @@ public class RegistrationWithFakerTests extends TestBase {
                             .checkRegistrationResult("Picture", pathToPicture)
                             .checkRegistrationResult("Address", currentAddress)
                             .checkRegistrationResult("State and City", resultStateAndCity);
-//                });
+                });
     }
 
     @DisplayName("Заполнение только обязательных полей при регистрации")

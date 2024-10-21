@@ -7,11 +7,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.RegistrationPage;
 
 import java.util.Map;
 
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class TestBase {
     @BeforeAll

@@ -86,7 +86,7 @@ public class RegistrationPage extends ResultTableComponent {
 
     @Step("Загрузить картинку {picture}")
     public RegistrationPage uploadPicture(String picture) {
-        uploadPicture.scrollTo().uploadFromClasspath(picture);
+        uploadPicture.uploadFromClasspath(picture);
         return this;
     }
 
